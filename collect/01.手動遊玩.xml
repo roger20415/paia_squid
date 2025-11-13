@@ -1,0 +1,174 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="mlplay_class" id="(`EL;IGdt=L(.Voe+#fy" x="-513" y="12">
+    <statement name="UPDATE">
+      <block type="controls_if" id="N3-f@@i^fUc3c~cdasWG">
+        <mutation xmlns="http://www.w3.org/1999/xhtml" elseif="1" else="1"></mutation>
+        <field name="IS0">TRUE</field>
+        <field name="IS1">TRUE</field>
+        <value name="IF0">
+          <block type="logic_compare" id="wP8b854deln)v0NTVRpM">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="mlplay_init_info" id="B]DDKxQ2@@r04?|@g?6?">
+                <field name="FIELD">ai_name</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="text" id="|$nd69?2bp/y3^wNvkHe">
+                <field name="TEXT">1P</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="FC2t]zQHV89PNd/%DY]?">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" elseif="3" else="1"></mutation>
+            <field name="IS0">TRUE</field>
+            <field name="IS1">TRUE</field>
+            <field name="IS2">TRUE</field>
+            <field name="IS3">TRUE</field>
+            <value name="IF0">
+              <block type="mlplay_is_key_pressed" id=";~YEun{3-=qBP3ybe9+F">
+                <field name="TYPE">alpha</field>
+                <field name="KEY">w</field>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="mlplay_return_action" id="(E1phXp:orFM4IJb$V4n">
+                <field name="ACTION">['UP']</field>
+              </block>
+            </statement>
+            <value name="IF1">
+              <block type="mlplay_is_key_pressed" id="Thl=Sk`6AyH^1VI5bu=S">
+                <field name="TYPE">alpha</field>
+                <field name="KEY">s</field>
+              </block>
+            </value>
+            <statement name="DO1">
+              <block type="mlplay_return_action" id="FNW+cH-z1U?L|{9_YTzP">
+                <field name="ACTION">['DOWN']</field>
+              </block>
+            </statement>
+            <value name="IF2">
+              <block type="mlplay_is_key_pressed" id="uTGOD`5b@9t)||H!lio@">
+                <field name="TYPE">alpha</field>
+                <field name="KEY">a</field>
+              </block>
+            </value>
+            <statement name="DO2">
+              <block type="mlplay_return_action" id="cCK6}|Nnr3uL-Yg.V-C1">
+                <field name="ACTION">['LEFT']</field>
+              </block>
+            </statement>
+            <value name="IF3">
+              <block type="mlplay_is_key_pressed" id="],cIz~RRP0*x{T?sqD=i">
+                <field name="TYPE">alpha</field>
+                <field name="KEY">d</field>
+              </block>
+            </value>
+            <statement name="DO3">
+              <block type="mlplay_return_action" id="`_ip*Pv{ryf056m`2(qP">
+                <field name="ACTION">['RIGHT']</field>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="mlplay_return_action" id="lMzHLOR(FTz%Ya:!$={`">
+                <field name="ACTION">['NONE']</field>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id=",}TV3%Rd~yrWUU7!~Gz}">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="mlplay_init_info" id="fV7?]r#W+3GO7SHO_tDA">
+                <field name="FIELD">ai_name</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="text" id="*2kE;lGM=MQt%/~boQsE">
+                <field name="TEXT">2P</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="controls_if" id="oowN]x$A_X#[7JNr;ZdG">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" elseif="3" else="1"></mutation>
+            <field name="IS0">TRUE</field>
+            <field name="IS1">TRUE</field>
+            <field name="IS2">TRUE</field>
+            <field name="IS3">TRUE</field>
+            <value name="IF0">
+              <block type="mlplay_is_key_pressed" id="t~%!C*zXe,O-J+DQ.iQb">
+                <field name="TYPE">arrow</field>
+                <field name="KEY">UP</field>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="mlplay_return_action" id="xVUw%GooLSoZ{B8QE[}9">
+                <field name="ACTION">['UP']</field>
+              </block>
+            </statement>
+            <value name="IF1">
+              <block type="mlplay_is_key_pressed" id="F0Z:?:DZv?DhvPlFQ7z8">
+                <field name="TYPE">arrow</field>
+                <field name="KEY">DOWN</field>
+              </block>
+            </value>
+            <statement name="DO1">
+              <block type="mlplay_return_action" id="xAw5zd{3b2sHiY#f6Pa#">
+                <field name="ACTION">['DOWN']</field>
+              </block>
+            </statement>
+            <value name="IF2">
+              <block type="mlplay_is_key_pressed" id="FUULr1VS]_i!:j4^9e0$">
+                <field name="TYPE">arrow</field>
+                <field name="KEY">LEFT</field>
+              </block>
+            </value>
+            <statement name="DO2">
+              <block type="mlplay_return_action" id="a^07iW;wKfQ*:(7F,eBJ">
+                <field name="ACTION">['LEFT']</field>
+              </block>
+            </statement>
+            <value name="IF3">
+              <block type="mlplay_is_key_pressed" id="LF2_e#KeYo]LnV}Al=ZH">
+                <field name="TYPE">arrow</field>
+                <field name="KEY">RIGHT</field>
+              </block>
+            </value>
+            <statement name="DO3">
+              <block type="mlplay_return_action" id="iv-aq$?v8rnM5WXHsJ1L">
+                <field name="ACTION">['RIGHT']</field>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="mlplay_return_action" id="H#iUE`Q/w?A{w;#$)ebQ">
+                <field name="ACTION">['NONE']</field>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="mlplay_return_action" id="+3LAZ[,X0-{/xI^5xr2v">
+            <field name="ACTION">['NONE']</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <statement name="RESET">
+      <block type="text_print" id="3f{[|hL+AcDO~Z!5P~ST">
+        <value name="TEXT">
+          <shadow type="text" id="K;Ha1e?5nb3IYRzZHN/L">
+            <field name="TEXT">abc</field>
+          </shadow>
+          <block type="mlplay_get_info" id="cAYcBimWnJ5/-uB.2YW0">
+            <field name="FIELD">scene_info['status']</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

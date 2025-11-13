@@ -1,0 +1,770 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Number" id="Do]8:m[=9Lc3WhN478Np">移動方向編號</variable>
+    <variable type="Number" id="r[)9zTuwN6KQ7}i_}?|)">上方食物分數</variable>
+    <variable type="Array" id="Pzq:9-fUH6Da595Hf(vq">特徵資料清單</variable>
+    <variable type="Number" id="Pk$T6t_0C5V-xzJMdMm/">下方食物分數</variable>
+    <variable type="Model" id="vO.IM,qrS]liS+aDrky^">AI模型</variable>
+    <variable type="Number" id="ITcoIXXYpRK{@bgf-#+S">左邊食物分數</variable>
+    <variable type="Number" id="ie0j%Df8b7]_7z^C`Qor">右邊食物分數</variable>
+    <variable id="G?mA_a#Ke=Pbc)S{OW0U">個別食物</variable>
+    <variable type="Number" id="w}:*(f*5%W)vG;lNRwy_">食物與角色的X距離</variable>
+    <variable type="Number" id="EDYYs9zYuvVD8^y3/Z3W">食物與角色的Y距離</variable>
+  </variables>
+  <block type="lists_create_with" id="UevtkvO5lhpjg7LxUQh6" disabled-reasons="MANUALLY_DISABLED" x="788" y="-262">
+    <mutation items="6"></mutation>
+    <value name="ADD0">
+      <block type="mlplay_get_info" id="y;,s3?e`l4!m_Ctfw#OF">
+        <field name="FIELD">scene_info['self_x']</field>
+      </block>
+    </value>
+    <value name="ADD1">
+      <block type="mlplay_get_info" id="!F~[PWF9e,l)Uu#0o*rZ">
+        <field name="FIELD">scene_info['self_y']</field>
+      </block>
+    </value>
+    <value name="ADD2">
+      <block type="mlplay_get_info" id="C*)-)97}GNFX(sC}*$!9">
+        <field name="FIELD">scene_info['self_lv']</field>
+      </block>
+    </value>
+    <value name="ADD3">
+      <block type="mlplay_get_info" id="NYrt=OM_-SP|;JG5CO7@">
+        <field name="FIELD">scene_info['opponent_x']</field>
+      </block>
+    </value>
+    <value name="ADD4">
+      <block type="mlplay_get_info" id="=K#R|[XYG_uj2HSqaG!/">
+        <field name="FIELD">scene_info['opponent_y']</field>
+      </block>
+    </value>
+    <value name="ADD5">
+      <block type="mlplay_get_info" id="-9#zoq6`|31TY!AX)X9C">
+        <field name="FIELD">scene_info['opponent_lv']</field>
+      </block>
+    </value>
+  </block>
+  <block type="mlplay_class" id="(`EL;IGdt=L(.Voe+#fy" x="-687" y="-62">
+    <statement name="INIT">
+      <block type="variables_set" id="|Z/YX?CN6kd2W(EKq=?:">
+        <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
+        <value name="VALUE">
+          <block type="math_number" id="F8(C,Uq`$O~Sd58PJRc!">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="file_load" id="Bl-yT%,a;l_^rnV%c}eV">
+            <value name="FILENAME">
+              <shadow type="text" id="O1%]cV:8?il?gP:jjZwA">
+                <field name="TEXT">AI模型</field>
+              </shadow>
+              <block type="text_join" id="j=AFHu95iV;g3xP,EnR.">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id=",e:H-3?C-GEPx#F]UW`7">
+                    <field name="TEXT">AI模型_</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="mlplay_init_info" id="3$dXeG7Vf=9hR67xFN1g">
+                    <field name="FIELD">ai_name</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="OBJECT">
+              <block type="variables_get" id="ryXeW0{YygfeG[^ANZJe">
+                <field name="VAR" id="vO.IM,qrS]liS+aDrky^" variabletype="Model">AI模型</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="UPDATE">
+      <block type="procedures_callnoreturn" id="{pg~;q4W4~z_T^:vnfw(">
+        <mutation name="計算食物分數"></mutation>
+        <next>
+          <block type="variables_set" id="h07P{oG7W$,5ISt0+YN!">
+            <field name="VAR" id="Pzq:9-fUH6Da595Hf(vq" variabletype="Array">特徵資料清單</field>
+            <value name="VALUE">
+              <block type="lists_create_with" id="Qb-O4)ji#jOH{Q{5Z::/">
+                <mutation items="1"></mutation>
+                <value name="ADD0">
+                  <block type="lists_create_with" id="gNdzH-`m$mVf76|7Y8=I">
+                    <mutation items="4"></mutation>
+                    <value name="ADD0">
+                      <block type="variables_get" id="Yj=QMlI;d|^F]itG~8Q=">
+                        <field name="VAR" id="r[)9zTuwN6KQ7}i_}?|)" variabletype="Number">上方食物分數</field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="variables_get" id="88g+@iazj3CMe!qM:iLt">
+                        <field name="VAR" id="Pk$T6t_0C5V-xzJMdMm/" variabletype="Number">下方食物分數</field>
+                      </block>
+                    </value>
+                    <value name="ADD2">
+                      <block type="variables_get" id="RVB3-]L%8})|ZFt3d|fk">
+                        <field name="VAR" id="ITcoIXXYpRK{@bgf-#+S" variabletype="Number">左邊食物分數</field>
+                      </block>
+                    </value>
+                    <value name="ADD3">
+                      <block type="variables_get" id="iQj?1_h`I!i_dzguf}Si">
+                        <field name="VAR" id="ie0j%Df8b7]_7z^C`Qor" variabletype="Number">右邊食物分數</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="F[p:ARE/B)=EEkB.0E(O">
+                <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
+                <value name="VALUE">
+                  <block type="lists_getIndex" id="DT3_1.*N~`q:fpC!L{-^">
+                    <mutation at="[object Object]"></mutation>
+                    <field name="WHERE">FIRST</field>
+                    <value name="VALUE">
+                      <block type="model_predict" id="9c0sXl@c))_itL%O~Ue+">
+                        <value name="MODEL">
+                          <block type="variables_get" id="d(54t!E7I(1Xm,$:]7U{">
+                            <field name="VAR" id="vO.IM,qrS]liS+aDrky^" variabletype="Model">AI模型</field>
+                          </block>
+                        </value>
+                        <value name="X">
+                          <block type="variables_get" id="((vrb}CfR0Q9Tm[vqKP7">
+                            <field name="VAR" id="Pzq:9-fUH6Da595Hf(vq" variabletype="Array">特徵資料清單</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="qWq@]4Or7ZU*L)p|Cwfy">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" elseif="3" else="1"></mutation>
+                    <field name="IS0">TRUE</field>
+                    <field name="IS1">TRUE</field>
+                    <field name="IS2">TRUE</field>
+                    <field name="IS3">TRUE</field>
+                    <value name="IF0">
+                      <block type="logic_compare" id="JUUX.y8:fhlAPCEX{4i(">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="l#-L-x;^L6)bxOBodAQK">
+                            <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="m^F4L6+[lXL{zp)M|Qi*">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="mlplay_return_action" id="{(Fr6MTn0)BT3w@9XX0f">
+                        <field name="ACTION">['UP']</field>
+                      </block>
+                    </statement>
+                    <value name="IF1">
+                      <block type="logic_compare" id="~S|bxYW)w)#;w)R|~9w^">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="er=@|XcX4vKQ14f:ZxGV">
+                            <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="uIlgVXvA-QM1!$InnL8*">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO1">
+                      <block type="mlplay_return_action" id="866MF_R-cc9o$.:%@wjx">
+                        <field name="ACTION">['DOWN']</field>
+                      </block>
+                    </statement>
+                    <value name="IF2">
+                      <block type="logic_compare" id="Tz$uueskSxJJ88oi]T1)">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="s7$N7G!mMFSOGp+%g(Ej">
+                            <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="Fq[nvZ#p}A*C7boOc*uq">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO2">
+                      <block type="mlplay_return_action" id="Af;T:4/fAw*;^(+,}h;6">
+                        <field name="ACTION">['LEFT']</field>
+                      </block>
+                    </statement>
+                    <value name="IF3">
+                      <block type="logic_compare" id="j(wxZ*zUO[N)UG0bG.0/">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="-pl4cja{N|JmV^SNapm!">
+                            <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="4ECD)5CD0`Z!I5ZN$xnm">
+                            <field name="NUM">4</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO3">
+                      <block type="mlplay_return_action" id="_UQY}q;.`c-pGJs^$@GR">
+                        <field name="ACTION">['RIGHT']</field>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="mlplay_return_action" id="_^;V:zuXltRBJ+G=JXE~">
+                        <field name="ACTION">['NONE']</field>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="`6EC{6[!U:=3N2i4COl1" x="713" y="463">
+    <field name="NAME">計算食物分數</field>
+    <comment pinned="false" h="80" w="160">描述此函式...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="sEC/FJsRuP%Wmak_6IK|">
+        <field name="VAR" id="r[)9zTuwN6KQ7}i_}?|)" variabletype="Number">上方食物分數</field>
+        <value name="VALUE">
+          <block type="math_number" id="Giha9GfMNQFQSmUK)iED">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="phW,YpE;Lc=]lhKu^o=0">
+            <field name="VAR" id="Pk$T6t_0C5V-xzJMdMm/" variabletype="Number">下方食物分數</field>
+            <value name="VALUE">
+              <block type="math_number" id="-Nrjcn^{a2|0tc9%U:aB">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="x0H4pItNL|x~1MMkT+/q">
+                <field name="VAR" id="ITcoIXXYpRK{@bgf-#+S" variabletype="Number">左邊食物分數</field>
+                <value name="VALUE">
+                  <block type="math_number" id="a*Aua6|D6tCw]Ca6NfcR">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="vU71y4C3}+d`0W16Bd3.">
+                    <field name="VAR" id="ie0j%Df8b7]_7z^C`Qor" variabletype="Number">右邊食物分數</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="KP0!W1nn;JxmMTVmHIen">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_forEach" id="aX%x{/_O#2B`#9jm789y">
+                        <field name="VAR" id="G?mA_a#Ke=Pbc)S{OW0U">個別食物</field>
+                        <value name="LIST">
+                          <block type="mlplay_get_info" id="N4.Nu7GfZ3E]eryPHPju">
+                            <field name="FIELD">scene_info['foods']</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="text_print" id="d,WW0(DhV{}+c+[yG)Hw" disabled-reasons="MANUALLY_DISABLED">
+                            <value name="TEXT">
+                              <shadow type="text" id="h##I2)PH]MR[p_2|D]c*">
+                                <field name="TEXT">abc</field>
+                              </shadow>
+                              <block type="variables_get" id="uv2L0_d%YE#12^H;N}:0">
+                                <field name="VAR" id="G?mA_a#Ke=Pbc)S{OW0U">個別食物</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="8m%9hDW^HZJ,K}j3V9ec">
+                                <field name="VAR" id="w}:*(f*5%W)vG;lNRwy_" variabletype="Number">食物與角色的X距離</field>
+                                <value name="VALUE">
+                                  <block type="math_arithmetic" id="t692(.@T[~UGcIq}RgoA">
+                                    <field name="OP">MINUS</field>
+                                    <value name="A">
+                                      <shadow type="math_number" id="h.w|jz3``mq4s1]!B$TP">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="dicts_get_value" id="21okOl)Oq{z~$YgD@::H">
+                                        <value name="DICT">
+                                          <block type="variables_get" id="h[QtbXdgAgK-zJto6o4%">
+                                            <field name="VAR" id="G?mA_a#Ke=Pbc)S{OW0U">個別食物</field>
+                                          </block>
+                                        </value>
+                                        <value name="KEY">
+                                          <shadow type="text" id="}d{)!y`WF~R5)O8$GSr|">
+                                            <field name="TEXT">x</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="math_number" id="r(ucwm|a}uENl2?E.~_i">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="mlplay_get_info" id="1jX@rNdgSrB4OY*66-MU">
+                                        <field name="FIELD">scene_info['self_x']</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="XJ_d[nd!G6yVKP?FurXC">
+                                    <field name="VAR" id="EDYYs9zYuvVD8^y3/Z3W" variabletype="Number">食物與角色的Y距離</field>
+                                    <value name="VALUE">
+                                      <block type="math_arithmetic" id="k$u=|B}Y_Gk`BrUHhj6R">
+                                        <field name="OP">MINUS</field>
+                                        <value name="A">
+                                          <shadow type="math_number" id="h.w|jz3``mq4s1]!B$TP">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="dicts_get_value" id="Nm)AaaS$Exj$_SHoZe~U">
+                                            <value name="DICT">
+                                              <block type="variables_get" id=")2),lCas]Y1yn}uM$JX9">
+                                                <field name="VAR" id="G?mA_a#Ke=Pbc)S{OW0U">個別食物</field>
+                                              </block>
+                                            </value>
+                                            <value name="KEY">
+                                              <shadow type="text" id="=I1)])JFIfYF}$I=v2/9">
+                                                <field name="TEXT">y</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="math_number" id="r(ucwm|a}uENl2?E.~_i">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="mlplay_get_info" id="UjYcrRidmHv+qb%nfv4/">
+                                            <field name="FIELD">scene_info['self_y']</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="text_print" id="+tSYTZdLNS~9:kk)?g0h" disabled-reasons="MANUALLY_DISABLED">
+                                        <value name="TEXT">
+                                          <shadow type="text" id="2L2W-4h`aIX7VZB`|W(?">
+                                            <field name="TEXT">上方有食物</field>
+                                          </shadow>
+                                          <block type="text_join" id=":IB74Ao!,!C5%-Ja+XHz">
+                                            <mutation items="4"></mutation>
+                                            <value name="ADD0">
+                                              <block type="text" id="mwgGJ0Tz([_]pMu`0{i,">
+                                                <field name="TEXT">X＝</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD1">
+                                              <block type="variables_get" id="3*+3h_%N^?):zyRL)MxO">
+                                                <field name="VAR" id="w}:*(f*5%W)vG;lNRwy_" variabletype="Number">食物與角色的X距離</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD2">
+                                              <block type="text" id=";(rB5jB$C5H@OmN.P,ZQ">
+                                                <field name="TEXT"> Y＝</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD3">
+                                              <block type="variables_get" id="H!5FZ_P@q.!J)e!LVYz,">
+                                                <field name="VAR" id="EDYYs9zYuvVD8^y3/Z3W" variabletype="Number">食物與角色的Y距離</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="controls_if" id="ZHXY)%g/Na@525rK:Jj*">
+                                            <mutation xmlns="http://www.w3.org/1999/xhtml" elseif="3"></mutation>
+                                            <field name="IS0">TRUE</field>
+                                            <field name="IS1">TRUE</field>
+                                            <field name="IS2">TRUE</field>
+                                            <field name="IS3">TRUE</field>
+                                            <value name="IF0">
+                                              <block type="logic_operation" id="Q!o,10nS;Sa|Q6Iu!i?!">
+                                                <field name="OP">AND</field>
+                                                <value name="A">
+                                                  <block type="logic_compare" id="FAMhY8]R1Yy6t1sZWw}P">
+                                                    <field name="OP">LT</field>
+                                                    <value name="A">
+                                                      <block type="math_single" id="H)Cv~.m65~@LroN?QMj.">
+                                                        <field name="OP">ABS</field>
+                                                        <value name="NUM">
+                                                          <shadow type="math_number" id="c0USA7TO/vv/X7?,zIE;">
+                                                            <field name="NUM">9</field>
+                                                          </shadow>
+                                                          <block type="variables_get" id="#W{k`K.S-uS`(N2{#G2j">
+                                                            <field name="VAR" id="w}:*(f*5%W)vG;lNRwy_" variabletype="Number">食物與角色的X距離</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="Z/]2/[[`#4a5Jci|Lv9]">
+                                                        <field name="NUM">40</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="logic_compare" id="?fk+xzzJk7GD7#Q[/*gw">
+                                                    <field name="OP">LT</field>
+                                                    <value name="A">
+                                                      <block type="variables_get" id="%}?-EqtKqKSrSh,A1,j6">
+                                                        <field name="VAR" id="EDYYs9zYuvVD8^y3/Z3W" variabletype="Number">食物與角色的Y距離</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="`YtzfNK34b7K).Qz/:1h">
+                                                        <field name="NUM">0</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="variables_set" id="6]FA4qL;eqYhE,H8CQS6">
+                                                <field name="VAR" id="r[)9zTuwN6KQ7}i_}?|)" variabletype="Number">上方食物分數</field>
+                                                <value name="VALUE">
+                                                  <block type="math_arithmetic" id="D=wv]q1}kfK_GK0eB*mb">
+                                                    <field name="OP">ADD</field>
+                                                    <value name="A">
+                                                      <shadow type="math_number" id="tat$8,MhWR.akI-=9=bR">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                      <block type="variables_get" id="LO^Qk=#pmD`s}Ycla|xq">
+                                                        <field name="VAR" id="r[)9zTuwN6KQ7}i_}?|)" variabletype="Number">上方食物分數</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <shadow type="math_number" id="^Np9](~oHF]Psl3SrTs[">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                      <block type="dicts_get_value" id="A34GAx^M4p805C_GUx`9">
+                                                        <value name="DICT">
+                                                          <block type="variables_get" id="#%4^Wx-AC:Q=#3}$;|g=">
+                                                            <field name="VAR" id="G?mA_a#Ke=Pbc)S{OW0U">個別食物</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="KEY">
+                                                          <shadow type="text" id="0b{#XevRQuNjSt1#_,S_">
+                                                            <field name="TEXT">score</field>
+                                                          </shadow>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="text_print" id="75(o{N9hR`:Y;QhbLa0]" disabled-reasons="MANUALLY_DISABLED">
+                                                    <value name="TEXT">
+                                                      <shadow type="text" id="c~;*e4Gv|WhA;2@SN11/">
+                                                        <field name="TEXT">上方有食物</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                            <value name="IF1">
+                                              <block type="logic_operation" id="_I7|$jtr$Vw,aw[%*,,{">
+                                                <field name="OP">AND</field>
+                                                <value name="A">
+                                                  <block type="logic_compare" id="KWwBd_l4x9*`%@T3/78@">
+                                                    <field name="OP">LT</field>
+                                                    <value name="A">
+                                                      <block type="math_single" id="vF^{r#4?9*|mYbL#ns8z">
+                                                        <field name="OP">ABS</field>
+                                                        <value name="NUM">
+                                                          <shadow type="math_number" id="c0USA7TO/vv/X7?,zIE;">
+                                                            <field name="NUM">9</field>
+                                                          </shadow>
+                                                          <block type="variables_get" id="17)jo+7WsIp+dCcI!)E3">
+                                                            <field name="VAR" id="w}:*(f*5%W)vG;lNRwy_" variabletype="Number">食物與角色的X距離</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="P{hBs}J{_BsdR7sf%zvy">
+                                                        <field name="NUM">40</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="logic_compare" id="3wo3!FQa_JVd9vJ0}^?r">
+                                                    <field name="OP">GT</field>
+                                                    <value name="A">
+                                                      <block type="variables_get" id="dY-YZ#l.FV;m$j`:prz`">
+                                                        <field name="VAR" id="EDYYs9zYuvVD8^y3/Z3W" variabletype="Number">食物與角色的Y距離</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="+bk=:h!G`=)e^,%i5H6!">
+                                                        <field name="NUM">0</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO1">
+                                              <block type="variables_set" id="Ip~p8*$MIewy`eCj;FKF">
+                                                <field name="VAR" id="Pk$T6t_0C5V-xzJMdMm/" variabletype="Number">下方食物分數</field>
+                                                <value name="VALUE">
+                                                  <block type="math_arithmetic" id="%[~:@oxk!Y4R`TRZs,~`">
+                                                    <field name="OP">ADD</field>
+                                                    <value name="A">
+                                                      <shadow type="math_number" id="tat$8,MhWR.akI-=9=bR">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                      <block type="variables_get" id="ZHobV$7[yTZ(`|~`:K@a">
+                                                        <field name="VAR" id="Pk$T6t_0C5V-xzJMdMm/" variabletype="Number">下方食物分數</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <shadow type="math_number" id="^Np9](~oHF]Psl3SrTs[">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                      <block type="dicts_get_value" id="}C|0~)|EZGBo8,pvk%(W">
+                                                        <value name="DICT">
+                                                          <block type="variables_get" id="ESzvx/r[!MPHwZ#LHPT1">
+                                                            <field name="VAR" id="G?mA_a#Ke=Pbc)S{OW0U">個別食物</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="KEY">
+                                                          <shadow type="text" id="rUE^0};,:P5A|Y6Bt)HK">
+                                                            <field name="TEXT">score</field>
+                                                          </shadow>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="text_print" id="s9{[I0]u;=}8UgHpnMH2" disabled-reasons="MANUALLY_DISABLED">
+                                                    <value name="TEXT">
+                                                      <shadow type="text" id="h##I2)PH]MR[p_2|D]c*">
+                                                        <field name="TEXT">下方有食物</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                            <value name="IF2">
+                                              <block type="logic_operation" id="2.q#CLV@oftP,}*e.3[H">
+                                                <field name="OP">AND</field>
+                                                <value name="A">
+                                                  <block type="logic_compare" id="?Gv4.GjN${`|LAw4S_e+">
+                                                    <field name="OP">LT</field>
+                                                    <value name="A">
+                                                      <block type="variables_get" id="uj(`|Fw|Y.ejDbyqjXt$">
+                                                        <field name="VAR" id="w}:*(f*5%W)vG;lNRwy_" variabletype="Number">食物與角色的X距離</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="RrEj2%|#mACp!)o8Ncx?">
+                                                        <field name="NUM">0</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="logic_compare" id=";|pEc;A$[CX:HEIp42fH">
+                                                    <field name="OP">LT</field>
+                                                    <value name="A">
+                                                      <block type="math_single" id=",y`jqFFmM=n)/`v,^|fl">
+                                                        <field name="OP">ABS</field>
+                                                        <value name="NUM">
+                                                          <shadow type="math_number" id="c0USA7TO/vv/X7?,zIE;">
+                                                            <field name="NUM">9</field>
+                                                          </shadow>
+                                                          <block type="variables_get" id="b/(i)uDAb$~JBZgr7rg{">
+                                                            <field name="VAR" id="EDYYs9zYuvVD8^y3/Z3W" variabletype="Number">食物與角色的Y距離</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="a;N1VyD]rrSkKIR%2@nA">
+                                                        <field name="NUM">35</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO2">
+                                              <block type="variables_set" id="gCwlFQ8MW(;1F@(c)$H!">
+                                                <field name="VAR" id="ITcoIXXYpRK{@bgf-#+S" variabletype="Number">左邊食物分數</field>
+                                                <value name="VALUE">
+                                                  <block type="math_arithmetic" id="[C]O]Zok1s5|B{TEGGk,">
+                                                    <field name="OP">ADD</field>
+                                                    <value name="A">
+                                                      <shadow type="math_number" id="tat$8,MhWR.akI-=9=bR">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                      <block type="variables_get" id="4:N%n.AxF`ym,qZO7d=8">
+                                                        <field name="VAR" id="ITcoIXXYpRK{@bgf-#+S" variabletype="Number">左邊食物分數</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <shadow type="math_number" id="^Np9](~oHF]Psl3SrTs[">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                      <block type="dicts_get_value" id="#F((}O+lc!WkSb3*5w+i">
+                                                        <value name="DICT">
+                                                          <block type="variables_get" id="}U{iDB{kZiF/0Gwy$wJU">
+                                                            <field name="VAR" id="G?mA_a#Ke=Pbc)S{OW0U">個別食物</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="KEY">
+                                                          <shadow type="text" id="IKMmm7]MtJd}K|qV]DEV">
+                                                            <field name="TEXT">score</field>
+                                                          </shadow>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="text_print" id="NZcZcPhP;R%YrQx-Qh{/" disabled-reasons="MANUALLY_DISABLED">
+                                                    <value name="TEXT">
+                                                      <shadow type="text" id="~Fq[uriC[1Q,ftsyz/SD">
+                                                        <field name="TEXT">左邊有食物</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                            <value name="IF3">
+                                              <block type="logic_operation" id="pub;dul$,tuVu!2((@/y">
+                                                <field name="OP">AND</field>
+                                                <value name="A">
+                                                  <block type="logic_compare" id="pWAtHEQPW]L,joKG/B*P">
+                                                    <field name="OP">GT</field>
+                                                    <value name="A">
+                                                      <block type="variables_get" id="??]ACh,}!KuUO{kwQk6o">
+                                                        <field name="VAR" id="w}:*(f*5%W)vG;lNRwy_" variabletype="Number">食物與角色的X距離</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="q3[oqBq#~Qa6uo|MsxpN">
+                                                        <field name="NUM">0</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="logic_compare" id="pr%3AW{KmGO_0tw,+-p3">
+                                                    <field name="OP">LT</field>
+                                                    <value name="A">
+                                                      <block type="math_single" id="8)f!|6`b1`LrA*e@9mBv">
+                                                        <field name="OP">ABS</field>
+                                                        <value name="NUM">
+                                                          <shadow type="math_number" id="c0USA7TO/vv/X7?,zIE;">
+                                                            <field name="NUM">9</field>
+                                                          </shadow>
+                                                          <block type="variables_get" id="j+xE6;E-q@kE=evWkC7e">
+                                                            <field name="VAR" id="EDYYs9zYuvVD8^y3/Z3W" variabletype="Number">食物與角色的Y距離</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="/`o$B2nr5rL@.*OI?fTe">
+                                                        <field name="NUM">35</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO3">
+                                              <block type="variables_set" id="sVD(?go=rFU:dfRA{C=r">
+                                                <field name="VAR" id="ie0j%Df8b7]_7z^C`Qor" variabletype="Number">右邊食物分數</field>
+                                                <value name="VALUE">
+                                                  <block type="math_arithmetic" id="rw~p{+6{@*veIy9hr]IO">
+                                                    <field name="OP">ADD</field>
+                                                    <value name="A">
+                                                      <shadow type="math_number" id="tat$8,MhWR.akI-=9=bR">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                      <block type="variables_get" id="HRapqIRRQ)h9}ZoIibwy">
+                                                        <field name="VAR" id="ie0j%Df8b7]_7z^C`Qor" variabletype="Number">右邊食物分數</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <shadow type="math_number" id="^Np9](~oHF]Psl3SrTs[">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                      <block type="dicts_get_value" id="G%D|R.~vMr.RQE,HeQc4">
+                                                        <value name="DICT">
+                                                          <block type="variables_get" id="]oY,iBX:to0m)}O)P6;h">
+                                                            <field name="VAR" id="G?mA_a#Ke=Pbc)S{OW0U">個別食物</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="KEY">
+                                                          <shadow type="text" id="0ZW/w%Sk*z+T,uII)sm~">
+                                                            <field name="TEXT">score</field>
+                                                          </shadow>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="text_print" id="eP+.jW9cslBKCoG{|Jnm" disabled-reasons="MANUALLY_DISABLED">
+                                                    <value name="TEXT">
+                                                      <shadow type="text" id="v*[#{VaJ`dRcQo7]Uih!">
+                                                        <field name="TEXT">右邊有食物</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

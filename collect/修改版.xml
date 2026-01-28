@@ -912,7 +912,7 @@
       </block>
     </statement>
   </block>
-  <block type="mlplay_class" id="(`EL;IGdt=L(.Voe+#fy" x="13" y="3988">
+  <block type="mlplay_class" id="(`EL;IGdt=L(.Voe+#fy" x="56" y="3955">
     <statement name="INIT">
       <block type="variables_set" id="|Z/YX?CN6kd2W(EKq=?:">
         <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
@@ -1004,131 +1004,131 @@
       </block>
     </statement>
     <statement name="UPDATE">
-      <block type="procedures_callnoreturn" id="lpFVZ5R@aOx+G=)%*(TK">
+      <block type="procedures_callnoreturn" id="lpFVZ5R@aOx+G=)%*(TK" collapsed="true">
         <mutation name="移動控制"></mutation>
         <next>
-          <block type="procedures_callnoreturn" id="$H@#y*?@fBrj,$7E0YFh">
+          <block type="procedures_callnoreturn" id="$H@#y*?@fBrj,$7E0YFh" collapsed="true">
             <mutation name="收集資料"></mutation>
             <next>
-              <block type="procedures_callnoreturn" id="1}Ig_e:(#v7dJ.nvSk1h" disabled-reasons="MANUALLY_DISABLED">
-                <mutation name="手動"></mutation>
-                <next>
-                  <block type="procedures_callnoreturn" id="H*i~W5=$yVVnMV!ji-1^" disabled-reasons="MANUALLY_DISABLED">
-                    <mutation name="系統觀察"></mutation>
+              <block type="controls_if" id=":-:rn]yw{7o7(I,U,+;=" disabled-reasons="MANUALLY_DISABLED">
+                <field name="IS0">TRUE</field>
+                <value name="IF0">
+                  <block type="logic_compare" id="W(@tnG,%wvzJLNr7|QRD">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="mlplay_init_info" id="k%GE?9Fm~G5(0vD7gOO=">
+                        <field name="FIELD">ai_name</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="^08(EBH{k%]FJ5TPYid6">
+                        <field name="TEXT">1P</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="procedures_callnoreturn" id="1}Ig_e:(#v7dJ.nvSk1h">
+                    <mutation name="手動"></mutation>
                     <next>
-                      <block type="controls_if" id="qWq@]4Or7ZU*L)p|Cwfy">
-                        <mutation xmlns="http://www.w3.org/1999/xhtml" elseif="3" else="1"></mutation>
-                        <field name="IS0">TRUE</field>
-                        <field name="IS1">TRUE</field>
-                        <field name="IS2">TRUE</field>
-                        <field name="IS3">TRUE</field>
-                        <value name="IF0">
-                          <block type="logic_compare" id="JUUX.y8:fhlAPCEX{4i(">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="variables_get" id="l#-L-x;^L6)bxOBodAQK">
-                                <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="math_number" id="m^F4L6+[lXL{zp)M|Qi*">
-                                <field name="NUM">1</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <statement name="DO0">
-                          <block type="mlplay_return_action" id="{(Fr6MTn0)BT3w@9XX0f">
-                            <field name="ACTION">['UP']</field>
-                          </block>
-                        </statement>
-                        <value name="IF1">
-                          <block type="logic_compare" id="~S|bxYW)w)#;w)R|~9w^">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="variables_get" id="er=@|XcX4vKQ14f:ZxGV">
-                                <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="math_number" id="uIlgVXvA-QM1!$InnL8*">
-                                <field name="NUM">2</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <statement name="DO1">
-                          <block type="mlplay_return_action" id="866MF_R-cc9o$.:%@wjx">
-                            <field name="ACTION">['DOWN']</field>
-                          </block>
-                        </statement>
-                        <value name="IF2">
-                          <block type="logic_compare" id="Tz$uueskSxJJ88oi]T1)">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="variables_get" id="s7$N7G!mMFSOGp+%g(Ej">
-                                <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="math_number" id="Fq[nvZ#p}A*C7boOc*uq">
-                                <field name="NUM">3</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <statement name="DO2">
-                          <block type="mlplay_return_action" id="Af;T:4/fAw*;^(+,}h;6">
-                            <field name="ACTION">['LEFT']</field>
-                          </block>
-                        </statement>
-                        <value name="IF3">
-                          <block type="logic_compare" id="j(wxZ*zUO[N)UG0bG.0/">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="variables_get" id="-pl4cja{N|JmV^SNapm!">
-                                <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="math_number" id="4ECD)5CD0`Z!I5ZN$xnm">
-                                <field name="NUM">4</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <statement name="DO3">
-                          <block type="mlplay_return_action" id="_UQY}q;.`c-pGJs^$@GR">
-                            <field name="ACTION">['RIGHT']</field>
-                          </block>
-                        </statement>
-                        <statement name="ELSE">
-                          <block type="mlplay_return_action" id="_^;V:zuXltRBJ+G=JXE~">
-                            <field name="ACTION">['NONE']</field>
-                          </block>
-                        </statement>
-                        <next>
-                          <block type="controls_if" id=":-:rn]yw{7o7(I,U,+;=" disabled-reasons="MANUALLY_DISABLED">
-                            <field name="IS0">TRUE</field>
-                            <value name="IF0">
-                              <block type="logic_compare" id="W(@tnG,%wvzJLNr7|QRD">
-                                <field name="OP">EQ</field>
-                                <value name="A">
-                                  <block type="mlplay_init_info" id="k%GE?9Fm~G5(0vD7gOO=">
-                                    <field name="FIELD">ai_name</field>
-                                  </block>
-                                </value>
-                                <value name="B">
-                                  <block type="text" id="^08(EBH{k%]FJ5TPYid6">
-                                    <field name="TEXT">1P</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                          </block>
-                        </next>
+                      <block type="procedures_callnoreturn" id="H*i~W5=$yVVnMV!ji-1^" collapsed="true">
+                        <mutation name="系統觀察"></mutation>
                       </block>
                     </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="qWq@]4Or7ZU*L)p|Cwfy">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" elseif="3" else="1"></mutation>
+                    <field name="IS0">TRUE</field>
+                    <field name="IS1">TRUE</field>
+                    <field name="IS2">TRUE</field>
+                    <field name="IS3">TRUE</field>
+                    <value name="IF0">
+                      <block type="logic_compare" id="JUUX.y8:fhlAPCEX{4i(">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="l#-L-x;^L6)bxOBodAQK">
+                            <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="m^F4L6+[lXL{zp)M|Qi*">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="mlplay_return_action" id="{(Fr6MTn0)BT3w@9XX0f">
+                        <field name="ACTION">['UP']</field>
+                      </block>
+                    </statement>
+                    <value name="IF1">
+                      <block type="logic_compare" id="~S|bxYW)w)#;w)R|~9w^">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="er=@|XcX4vKQ14f:ZxGV">
+                            <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="uIlgVXvA-QM1!$InnL8*">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO1">
+                      <block type="mlplay_return_action" id="866MF_R-cc9o$.:%@wjx">
+                        <field name="ACTION">['DOWN']</field>
+                      </block>
+                    </statement>
+                    <value name="IF2">
+                      <block type="logic_compare" id="Tz$uueskSxJJ88oi]T1)">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="s7$N7G!mMFSOGp+%g(Ej">
+                            <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="Fq[nvZ#p}A*C7boOc*uq">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO2">
+                      <block type="mlplay_return_action" id="Af;T:4/fAw*;^(+,}h;6">
+                        <field name="ACTION">['LEFT']</field>
+                      </block>
+                    </statement>
+                    <value name="IF3">
+                      <block type="logic_compare" id="j(wxZ*zUO[N)UG0bG.0/">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="-pl4cja{N|JmV^SNapm!">
+                            <field name="VAR" id="Do]8:m[=9Lc3WhN478Np" variabletype="Number">移動方向編號</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="4ECD)5CD0`Z!I5ZN$xnm">
+                            <field name="NUM">4</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO3">
+                      <block type="mlplay_return_action" id="_UQY}q;.`c-pGJs^$@GR">
+                        <field name="ACTION">['RIGHT']</field>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="mlplay_return_action" id="_^;V:zuXltRBJ+G=JXE~">
+                        <field name="ACTION">['NONE']</field>
+                      </block>
+                    </statement>
                   </block>
                 </next>
               </block>

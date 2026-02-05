@@ -1912,7 +1912,7 @@
                 <mutation at="[object Object]"></mutation>
                 <field name="WHERE">LAST</field>
                 <value name="TO">
-                  <block type="lists_create_with" id="|$)=S#MlH7zx+hIN}{[e">
+                  <block type="lists_create_with" id="=J^Xhv|hd-u-/wIJym=1">
                     <mutation items="1"></mutation>
                     <value name="ADD0">
                       <block type="variables_get" id=".Jp}eiBP@@^5-oP1U_]M">
@@ -1945,56 +1945,74 @@
               <shadow type="text" id="}_m11s}dUsY0([f8b{%C">
                 <field name="TEXT">data/特徵資料_1P.csv</field>
               </shadow>
-            </value>
-          </block>
-        </value>
-        <statement name="DO0">
-          <block type="file_csv_load" id="FnhHelLUb;)D+)/k{R]J">
-            <value name="FILENAME">
-              <shadow type="text" id="?LM!Jk$R/Wt{OR~Iflnb">
-                <field name="TEXT">檔案名稱</field>
-              </shadow>
-              <block type="text_join" id="{KQFiM@3.gJGC_@i})-#">
-                <mutation items="2"></mutation>
+              <block type="text_join" id="HWgO*Oa?bFCu9BRR/^u]">
+                <mutation items="3"></mutation>
                 <value name="ADD0">
-                  <block type="text" id="xz^fi4/$s5ixGs*~cxt[">
+                  <block type="text" id="rkU;#yYid{v;Jm9w6]Oh">
                     <field name="TEXT">data/特徵資料_</field>
                   </block>
                 </value>
                 <value name="ADD1">
-                  <block type="mlplay_init_info" id=".TL}%6*bi@*k7F.;QAhA">
+                  <block type="mlplay_init_info" id="#N1[]`kt%2SaDIS6i^(0">
+                    <field name="FIELD">ai_name</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="text" id="=7(On:LEpT%A=|vs10^U">
+                    <field name="TEXT">.csv</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="file_load" id="-0k_oaBq.e!(Ik{UGgn+">
+            <value name="FILENAME">
+              <shadow type="text" id="px(i}[FSvXln8GosH9v#">
+                <field name="TEXT">檔案名稱</field>
+              </shadow>
+              <block type="text_join" id="5Qnq~x/4yBH(h,MNjUX;">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="eE6Pr]bsKco=YG*KpmHt">
+                    <field name="TEXT">data/特徵資料_</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="mlplay_init_info" id=";HGYV{`k./)!L){mf54^">
                     <field name="FIELD">ai_name</field>
                   </block>
                 </value>
               </block>
             </value>
             <value name="OBJECT">
-              <block type="variables_get" id="-t{^-R0fB(AZ5%!?C~Yn">
+              <block type="variables_get" id="k(j@H_oq:aUTg+kb:@k~">
                 <field name="VAR" id="VYRT(dqY8u@Td8i@U%]*" variabletype="Array">前一次特徵資料</field>
               </block>
             </value>
             <next>
-              <block type="file_csv_load" id="y2yT5,GkeK;8Ql4hpov:">
+              <block type="file_load" id="e,11.r}+eM5E_V#4Pa:1">
                 <value name="FILENAME">
-                  <shadow type="text" id="?LM!Jk$R/Wt{OR~Iflnb">
+                  <shadow type="text" id="px(i}[FSvXln8GosH9v#">
                     <field name="TEXT">檔案名稱</field>
                   </shadow>
-                  <block type="text_join" id="D8XMqu`pWcq.%vWi6:Ex">
+                  <block type="text_join" id="l8wMsMscNTlRQ!gULK0E">
                     <mutation items="2"></mutation>
                     <value name="ADD0">
-                      <block type="text" id="!57j|eHa{zMD(dI3[h#w">
+                      <block type="text" id="OONeI0UqRk{Ek}i;iZ%%">
                         <field name="TEXT">data/訓練目標_</field>
                       </block>
                     </value>
                     <value name="ADD1">
-                      <block type="mlplay_init_info" id="(pEuhBN5M5=KKGp;=yJs">
+                      <block type="mlplay_init_info" id="=Lrr@?nv9X1[f%Von)z~">
                         <field name="FIELD">ai_name</field>
                       </block>
                     </value>
                   </block>
                 </value>
                 <value name="OBJECT">
-                  <block type="variables_get" id="XK8Uc#Ie,-NC{UoYmIUx">
+                  <block type="variables_get" id="G:xnklc|yvC_5TD;3}|{">
                     <field name="VAR" id="m#kQ}2U8Chd!rcY%ETJ*" variabletype="Array">前一次訓練目標</field>
                   </block>
                 </value>

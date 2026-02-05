@@ -1,44 +1,42 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
-    <variable type="Array" id="BPw;=)a_3r;8w-CyKtWI">玩家編號清單</variable>
-    <variable type="Array" id="]Z(1OUa,vC6*X;2Jo|mK">所有遊戲資訊</variable>
-    <variable type="Array" id="DBDUg23sDfJ0tCH90]zz">所有指令</variable>
-    <variable type="String" id="TpF}sp/bNvX}*u.4YLM_">玩家編號</variable>
-    <variable type="Array" id="$:v_w=}R3zy!MeWNV5q6">特徵資料</variable>
-    <variable type="Model" id="NjPYmcoqLpmJ|C]G^t#Q">AI模型</variable>
     <variable type="Array" id="K1CwXqo,(,DAA7AGR5Tg">訓練目標</variable>
+    <variable type="Array" id="$:v_w=}R3zy!MeWNV5q6">特徵資料</variable>
+    <variable type="Array" id="BPw;=)a_3r;8w-CyKtWI">玩家編號清單</variable>
+    <variable type="String" id="TpF}sp/bNvX}*u.4YLM_">玩家編號</variable>
+    <variable type="Model" id="NjPYmcoqLpmJ|C]G^t#Q">AI模型</variable>
   </variables>
-  <block type="variables_set" id="RHfD/,$levFE1_BkJ/)L" x="-488" y="-38">
-    <field name="VAR" id="BPw;=)a_3r;8w-CyKtWI" variabletype="Array">玩家編號清單</field>
+  <block type="variables_set" id="BSC4b5B3AeNDU$T~(+ZT" x="-62" y="-287">
+    <field name="VAR" id="K1CwXqo,(,DAA7AGR5Tg" variabletype="Array">訓練目標</field>
     <value name="VALUE">
-      <block type="lists_create_with" id=")-bLQ$sMAkQO70P_Sn6K">
-        <mutation items="2"></mutation>
-        <value name="ADD0">
-          <block type="text" id="8?n+MX-#A/$U*gwR]r)I">
-            <field name="TEXT">1P</field>
-          </block>
-        </value>
-        <value name="ADD1">
-          <block type="text" id="$SfQv.YLB6UUIWjL(:J6">
-            <field name="TEXT">2P</field>
-          </block>
-        </value>
+      <block type="lists_create_with" id="#PXW`V`f0?u-]~ds5ahY">
+        <mutation items="0"></mutation>
       </block>
     </value>
     <next>
-      <block type="variables_set" id="St.DP@3assotDSU$8]1_">
-        <field name="VAR" id="]Z(1OUa,vC6*X;2Jo|mK" variabletype="Array">所有遊戲資訊</field>
+      <block type="variables_set" id="2C9~0khGKt4./}#;1AFR">
+        <field name="VAR" id="$:v_w=}R3zy!MeWNV5q6" variabletype="Array">特徵資料</field>
         <value name="VALUE">
-          <block type="lists_create_with" id="I16.8AhA24fRe0se;X=z">
+          <block type="lists_create_with" id="dSc~9V/ltLNAcfKKU)VX">
             <mutation items="0"></mutation>
           </block>
         </value>
         <next>
-          <block type="variables_set" id="bhdUmM[K:)+vF{~.B|HE">
-            <field name="VAR" id="DBDUg23sDfJ0tCH90]zz" variabletype="Array">所有指令</field>
+          <block type="variables_set" id="RHfD/,$levFE1_BkJ/)L">
+            <field name="VAR" id="BPw;=)a_3r;8w-CyKtWI" variabletype="Array">玩家編號清單</field>
             <value name="VALUE">
-              <block type="lists_create_with" id="c7Usr=JfSKu1n-cm;y[h">
-                <mutation items="0"></mutation>
+              <block type="lists_create_with" id=")-bLQ$sMAkQO70P_Sn6K">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="8?n+MX-#A/$U*gwR]r)I">
+                    <field name="TEXT">1P</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="$SfQv.YLB6UUIWjL(:J6">
+                    <field name="TEXT">2P</field>
+                  </block>
+                </value>
               </block>
             </value>
             <next>
@@ -94,21 +92,97 @@
                           </block>
                         </value>
                         <next>
-                          <block type="lists_extend" id="JBQH!cc+hQGv3yfkKY0[">
-                            <field name="VAR" id="]Z(1OUa,vC6*X;2Jo|mK" variabletype="Array">所有遊戲資訊</field>
-                            <value name="LIST">
-                              <block type="variables_get" id="*].P2zkBRfY1;q5?u6HJ">
-                                <field name="VAR" id="$:v_w=}R3zy!MeWNV5q6" variabletype="Array">特徵資料</field>
+                          <block type="variables_set" id="qH{DEHO@{Q/5Q:jRD!Q#">
+                            <field name="VAR" id="NjPYmcoqLpmJ|C]G^t#Q" variabletype="Model">AI模型</field>
+                            <value name="VALUE">
+                              <block type="model_create_classification" id="m3OO|EWwPQ8_[C9Uo8!a">
+                                <field name="MODEL">SGDClassifier</field>
+                                <field name="PARAM_LOSS">hinge</field>
+                                <field name="PARAM_PENALTY">l2</field>
                               </block>
                             </value>
                             <next>
-                              <block type="lists_extend" id="D]fQ%TUJb)V6ubl+i5bv">
-                                <field name="VAR" id="DBDUg23sDfJ0tCH90]zz" variabletype="Array">所有指令</field>
-                                <value name="LIST">
-                                  <block type="variables_get" id="VhW$j:y34TkPDb,K#Qk=">
+                              <block type="model_train" id="a7,$$,?-y6hL2Ug5$i%W">
+                                <value name="MODEL">
+                                  <block type="variables_get" id="2WuOch:?O)k({Hk+hsQD">
+                                    <field name="VAR" id="NjPYmcoqLpmJ|C]G^t#Q" variabletype="Model">AI模型</field>
+                                  </block>
+                                </value>
+                                <value name="X">
+                                  <block type="variables_get" id="O=iVgt#+mW^W*?f;$TfR">
+                                    <field name="VAR" id="$:v_w=}R3zy!MeWNV5q6" variabletype="Array">特徵資料</field>
+                                  </block>
+                                </value>
+                                <value name="Y">
+                                  <block type="variables_get" id="FP.=#yC8Jy;2jq/Y-Z[{">
                                     <field name="VAR" id="K1CwXqo,(,DAA7AGR5Tg" variabletype="Array">訓練目標</field>
                                   </block>
                                 </value>
+                                <next>
+                                  <block type="file_save" id="Z[M#NNI@Ew8y^VrB]_Y!">
+                                    <comment pinned="false" h="48" w="130">儲存1P的模型</comment>
+                                    <value name="OBJECT">
+                                      <block type="variables_get" id="Fp4?Uy{%Jy!~xV]Q`{Gk">
+                                        <field name="VAR" id="NjPYmcoqLpmJ|C]G^t#Q" variabletype="Model">AI模型</field>
+                                      </block>
+                                    </value>
+                                    <value name="FILENAME">
+                                      <block type="text_join" id="j=AFHu95iV;g3xP,EnR.">
+                                        <mutation items="2"></mutation>
+                                        <value name="ADD0">
+                                          <block type="text" id=",e:H-3?C-GEPx#F]UW`7">
+                                            <field name="TEXT">AI模型_</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="variables_get" id="6;O_9,JXW1Rh4KCx5:ly">
+                                            <field name="VAR" id="TpF}sp/bNvX}*u.4YLM_" variabletype="String">玩家編號</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="text_print" id="JAcRx)s~AwVAE3U066RJ">
+                                        <value name="TEXT">
+                                          <shadow type="text" id="Oh#sDGM:{0FcpZ|DfpBt">
+                                            <field name="TEXT">abc</field>
+                                          </shadow>
+                                          <block type="text_join" id="sygp2g?+@4_6z9#p?fK*">
+                                            <mutation items="2"></mutation>
+                                            <value name="ADD0">
+                                              <block type="text" id="sLFw[6LGW%~{@HD*hmeE">
+                                                <field name="TEXT">準確率</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD1">
+                                              <block type="model_evaluate_classification" id="q|%d}=6.(T3Bn=Qw-F_5">
+                                                <value name="TRUE">
+                                                  <block type="variables_get" id="WJ=XFB#hB(geK?8nACFR">
+                                                    <field name="VAR" id="K1CwXqo,(,DAA7AGR5Tg" variabletype="Array">訓練目標</field>
+                                                  </block>
+                                                </value>
+                                                <value name="PRED">
+                                                  <block type="model_predict" id="#},cq0,p6GhH[:muTnRM">
+                                                    <value name="MODEL">
+                                                      <block type="variables_get" id="},[?v-q2*IBzB1p[MnI0">
+                                                        <field name="VAR" id="NjPYmcoqLpmJ|C]G^t#Q" variabletype="Model">AI模型</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="X">
+                                                      <block type="variables_get" id="VG*9](Zk;_*u4Tfictxs">
+                                                        <field name="VAR" id="$:v_w=}R3zy!MeWNV5q6" variabletype="Array">特徵資料</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
                               </block>
                             </next>
                           </block>
@@ -117,113 +191,6 @@
                     </next>
                   </block>
                 </statement>
-                <next>
-                  <block type="controls_forEach" id="/Hs#2Mi~~rXXwE)l,SZW">
-                    <field name="VAR" id="TpF}sp/bNvX}*u.4YLM_" variabletype="String">玩家編號</field>
-                    <value name="LIST">
-                      <block type="variables_get" id="20_4B`C/YEBoYQQqYMmY">
-                        <field name="VAR" id="BPw;=)a_3r;8w-CyKtWI" variabletype="Array">玩家編號清單</field>
-                      </block>
-                    </value>
-                    <statement name="DO">
-                      <block type="variables_set" id="qH{DEHO@{Q/5Q:jRD!Q#">
-                        <field name="VAR" id="NjPYmcoqLpmJ|C]G^t#Q" variabletype="Model">AI模型</field>
-                        <value name="VALUE">
-                          <block type="model_create_classification" id="m3OO|EWwPQ8_[C9Uo8!a">
-                            <field name="MODEL">KNeighborsClassifier</field>
-                            <field name="PARAM_K">1</field>
-                            <field name="PARAM_WEIGHTS">uniform</field>
-                            <field name="PARAM_ALGORITHM">auto</field>
-                          </block>
-                        </value>
-                        <next>
-                          <block type="model_train" id="a7,$$,?-y6hL2Ug5$i%W">
-                            <value name="MODEL">
-                              <block type="variables_get" id="2WuOch:?O)k({Hk+hsQD">
-                                <field name="VAR" id="NjPYmcoqLpmJ|C]G^t#Q" variabletype="Model">AI模型</field>
-                              </block>
-                            </value>
-                            <value name="X">
-                              <block type="variables_get" id="O=iVgt#+mW^W*?f;$TfR">
-                                <field name="VAR" id="$:v_w=}R3zy!MeWNV5q6" variabletype="Array">特徵資料</field>
-                              </block>
-                            </value>
-                            <value name="Y">
-                              <block type="variables_get" id="FP.=#yC8Jy;2jq/Y-Z[{">
-                                <field name="VAR" id="K1CwXqo,(,DAA7AGR5Tg" variabletype="Array">訓練目標</field>
-                              </block>
-                            </value>
-                            <next>
-                              <block type="file_save" id="Z[M#NNI@Ew8y^VrB]_Y!">
-                                <comment pinned="false" h="48" w="130">儲存1P的模型</comment>
-                                <value name="OBJECT">
-                                  <block type="variables_get" id="Fp4?Uy{%Jy!~xV]Q`{Gk">
-                                    <field name="VAR" id="NjPYmcoqLpmJ|C]G^t#Q" variabletype="Model">AI模型</field>
-                                  </block>
-                                </value>
-                                <value name="FILENAME">
-                                  <block type="text_join" id="j=AFHu95iV;g3xP,EnR.">
-                                    <mutation items="2"></mutation>
-                                    <value name="ADD0">
-                                      <block type="text" id=",e:H-3?C-GEPx#F]UW`7">
-                                        <field name="TEXT">AI模型_</field>
-                                      </block>
-                                    </value>
-                                    <value name="ADD1">
-                                      <block type="variables_get" id="6;O_9,JXW1Rh4KCx5:ly">
-                                        <field name="VAR" id="TpF}sp/bNvX}*u.4YLM_" variabletype="String">玩家編號</field>
-                                      </block>
-                                    </value>
-                                  </block>
-                                </value>
-                                <next>
-                                  <block type="text_print" id="d1qTJc0JCQD/WBq}eKgv">
-                                    <value name="TEXT">
-                                      <shadow type="text" id="Uu:aNqXi$%wq2K{Dv%*}">
-                                        <field name="TEXT">abc</field>
-                                      </shadow>
-                                      <block type="text_join" id="]r!}FD!U4NKxWGM~Ho(R">
-                                        <mutation items="2"></mutation>
-                                        <value name="ADD0">
-                                          <block type="text" id="WR.^Na~{%=y$]CA5dSmE">
-                                            <field name="TEXT">準確率：</field>
-                                          </block>
-                                        </value>
-                                        <value name="ADD1">
-                                          <block type="model_evaluate_classification" id="|SY]*Vq^g*}/Ti9C7*rN">
-                                            <value name="TRUE">
-                                              <block type="variables_get" id="%H?IN3;8v_C:2OSxn?9E">
-                                                <field name="VAR" id="K1CwXqo,(,DAA7AGR5Tg" variabletype="Array">訓練目標</field>
-                                              </block>
-                                            </value>
-                                            <value name="PRED">
-                                              <block type="model_predict" id="VM8^`z:g3!t@=#?LdqHv">
-                                                <value name="MODEL">
-                                                  <block type="variables_get" id="Gek1O57H-Rh5[Xr~3X$6">
-                                                    <field name="VAR" id="NjPYmcoqLpmJ|C]G^t#Q" variabletype="Model">AI模型</field>
-                                                  </block>
-                                                </value>
-                                                <value name="X">
-                                                  <block type="variables_get" id="W:D{zkfxUEN#_c+EKCpW">
-                                                    <field name="VAR" id="$:v_w=}R3zy!MeWNV5q6" variabletype="Array">特徵資料</field>
-                                                  </block>
-                                                </value>
-                                              </block>
-                                            </value>
-                                          </block>
-                                        </value>
-                                      </block>
-                                    </value>
-                                  </block>
-                                </next>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </statement>
-                  </block>
-                </next>
               </block>
             </next>
           </block>
